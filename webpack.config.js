@@ -45,5 +45,14 @@ module.exports = {
                 loader: "json-loader"
             }
             ]
+    },
+    devServer: {
+
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, HEAD, POST",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+            "Access-Control-Allow-Credentials": "true"
+        }
     }
 };
