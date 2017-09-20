@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Sparklines, SparkLinesLine} from 'react-sparklines';
 
 
 class WeatherList extends Component{
+
+    renderWeather(cityData){
+        const name = cityData.city.name;
+        const temp = cityData.list.map(weather => weather.main.temp);
+        return(
+            <tr key = {name}>
+                <td>{name}</td>
+            </tr>
+        )
+    }
     render(){
         return(
             <table className="table table-hover">
@@ -16,10 +27,8 @@ class WeatherList extends Component{
                 </thead>
                 <tbody>
 
-                <tr>
-                    <td></td>
-                </tr>
-
+                        {this.props.weather.map(this.renderWeather)}
+              
                 </tbody>
 
             </table>
